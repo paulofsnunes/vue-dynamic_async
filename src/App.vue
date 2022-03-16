@@ -1,28 +1,46 @@
+<!-- 
+Crie 3 componentes:
+
+1: Componente falando sobre a empresa
+2: Componente com os serviços da empresa
+3: Componente com um formulário de contato
+
+Crie um menu, que ao clique ele mude os componentes
+acima de forma dinâmica. Não destrua o componente
+-->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <sobre-empresa></sobre-empresa> -->
+    <ul>
+      <li @click="abaAtiva = 'SobreEmpresa'">Sobre</li>
+      <li @click="abaAtiva = 'ServicosEmpresa'">Serviços</li>
+      <li @click="abaAtiva = 'ContatoEmpresa'">Contato</li>
+    </ul>
+    <keep-alive>
+      <component :is="abaAtiva"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SobreEmpresa from './components/SobreEmpresa.vue';
+// import ContatoEmpresa from './components/ContatoEmpresa.vue'
+// import ServicosEmpresa from './components/ServicosEmpresa.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    SobreEmpresa,
+    ContatoEmpresa: () => import("./components/ContatoEmpresa.vue")
+    // ServicosEmpresa: () => import("./components/ServicosEmpresa.vue")
+  },
+  data() {
+    return {
+      abaAtiva: "",
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
