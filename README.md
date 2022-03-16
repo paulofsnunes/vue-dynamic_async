@@ -8,8 +8,7 @@
 #### 2: Componente com os serviços da empresa
 #### 3: Componente com um formulário de contato
 
-#### Crie um menu, que ao clique ele mude os componentes
-#### acima de forma dinâmica. Não destrua o componente
+#### Crie um menu, que ao clique ele mude os componentes acima de forma dinâmica. Não destrua o componente.
 ```
 
 ## Project setup
